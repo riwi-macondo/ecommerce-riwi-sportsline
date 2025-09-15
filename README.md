@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# 🛒 Riwi SportsLine - E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA (Single Page Application) desarrollada en **React + TypeScript** para la empresa **Riwi SportsLine**, que permite a clientes, vendedores y administradores interactuar con la plataforma de forma segura, ágil y confiable.
 
-Currently, two official plugins are available:
+El proyecto consume la API REST existente y ofrece una experiencia moderna, responsiva y accesible.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Objetivos principales
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Autenticación con **JWT + Refresh Token** y persistencia de sesión segura.
+- Manejo de roles: **administrador, vendedor y cliente**.
+- Gestión visual de **productos, clientes y pedidos**.
+- Validaciones de formularios y manejo robusto de errores.
+- Interfaz profesional, responsiva y accesible.
+- Despliegue en entornos productivos como **Vercel**, **Netlify** o **Docker**.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tecnologías principales
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **TypeScript**: tipado fuerte y escalabilidad.
+- **React + Vite**: velocidad y modularidad.
+- **React Router DOM**: navegación SPA con rutas protegidas.
+- **Zustand**: manejo de estado global sencillo y eficiente.
+- **Axios**: consumo de API REST con interceptores y manejo de errores.
+- **React Hook Form + Yup**: validaciones declarativas y robustas.
+- **TailwindCSS**: diseño moderno, responsivo y profesional.
+- **Jest + React Testing Library**: pruebas unitarias y de componentes.
+
+---
+
+## 📌 Funcionalidades clave
+
+### 🔑 Autenticación y roles
+- Registro e inicio de sesión conectados al backend.
+- Persistencia de sesión en `LocalStorage` o cookies seguras.
+- Rutas protegidas según rol (admin, vendedor, cliente).
+- Manejo de errores de autenticación (401/403).
+
+### 📦 Gestión de productos y clientes
+- CRUD visual de productos y clientes.
+- Formularios con validaciones y feedback en tiempo real.
+- Manejo de errores desde la API.
+- Interfaz amigable y adaptable a dispositivos móviles.
+
+### 🛍️ Gestión de pedidos
+- Carrito de compras con múltiples productos.
+- Registro y consulta de pedidos.
+- Validaciones de negocio (ej. stock insuficiente).
+- Notificaciones y feedback visual.
+
+### ✅ Calidad y despliegue
+- Cobertura mínima de pruebas del **40%**.
+- Principios de **Clean Code** y buenas prácticas.
+- Flujo de trabajo profesional con **GitHub Flow**.
+- Deploy en Vercel / Netlify / Docker Compose.
+
+---
+
+## ⚡ Instalación y ejecución
+
+```bash
+# Clonar repositorio
+git clone https://github.com/moicanbas/ecommerce-riwi-sportsline
+
+# Entrar al proyecto
+cd ecommerce-riwi-sportsline
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en entorno de desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Despliegue
+El proyecto está preparado para ser desplegado en:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Vercel
+- Netlify
+- Docker
