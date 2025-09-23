@@ -1,1 +1,18 @@
 @import "tailwindcss";
+@import "primereact/resources/themes/lara-light-cyan/theme.css";
+@import 'primeicons/primeicons.css';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-color: #2563EB;   
+
+  --secondary-color: #16A34A; /* Morado */
+
+  --surface-0: #F3F4F6; /* Light */
+  --surface-900: #111827; /* Dark */
+}
+
+.dark {
+  --surface-0: #111827;  /* fondo oscuro */
+  --surface-900: #ffffff; /* texto claro */
+}
