@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ThemeToggle from "../components/ThemeToggle"
 import { FloatLabel } from 'primereact/floatlabel';
 import { InputText } from "primereact/inputtext";
@@ -21,6 +21,38 @@ function Register() {
     ];
     const [password, setPassword] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [passwordError, setPasswordError] = useState<string>('')
+
+    const handle_validation = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const validation = e.target.value;
+        setConfirmPassword(validation);
+
+        if (validation === '') {
+            setPasswordError(''); 
+        } else if (password !== validation) {
+            setPasswordError('The passwords do not match.');
+        } else {
+            
+            setPasswordError(''); 
+        }
+    }
+    
+   
+    const handlePasswordChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+
+       
+        if (confirmPassword.length > 0) {
+            if (newPassword !== confirmPassword) {
+                setPasswordError('The passwords do not match.');
+            } else {
+                setPasswordError(''); 
+            }
+        }
+    };
+
+
     return (
         <div className="grid p-4 place-items-center">
             <div className="items-center p-4 dark:bg-gray-800 bg-gray-200 rounded-xl shadow-gray-500 shadow-xl">
@@ -53,16 +85,46 @@ function Register() {
                             <Dropdown className="w-full p-inputtext-sm" value={gender} onChange={(e) => setgender(e.value as null)} options={genderOptions} optionLabel="name" placeholder="Select a Gender"/>
                             <label htmlFor="gender">Gender</label>
                         </FloatLabel>
+
+                      
                         <FloatLabel>
-                            <Password className="w-full p-inputtext-sm" value={password} onChange={(e) => setPassword(e.target.value)} toggleMask placeholder="Password"/>
+                            <Password 
+                                className="w-full p-inputtext-sm" 
+                                value={password} 
+                                onChange={handlePasswordChange} 
+                                toggleMask 
+                                placeholder="Password"
+                            />
                             <label htmlFor="password">Password</label>
                         </FloatLabel>
+
+                        
                         <FloatLabel>
-                            <Password className="w-full p-inputtext-sm" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} toggleMask placeholder="Confirm Password"/>
+                            <Password 
+                                className="w-full p-inputtext-sm" 
+                                value={confirmPassword} 
+                                onChange={handle_validation} 
+                                toggleMask 
+                                placeholder="Confirm Password"
+                            />
                             <label htmlFor="confirmPassword">Confirm Password</label>
                         </FloatLabel>
+
+                        
+                        {passwordError && (
+                            <p className="text-sm text-red-500 mt-[-1rem]"> 
+                                {passwordError}
+                            </p>
+                        )}
+                        
                         <div className="grid grid-cols-1 place-items-center space-y-4">
-                            <Button label="Create Account" className="w-full sm:w-96" severity="warning" />
+                            <Button 
+                                label="Create Account" 
+                                className="w-full sm:w-96" 
+                                severity="warning"
+                                
+                                disabled={password !== confirmPassword || password.length === 0}
+                            />
                             <p className="text-sm text-gray-600 dark:text-gray-300">
                                 Do you have an account yet?{' '}
                                 <Link to="/Login" className="text-blue-600 dark:text-blue-400 hover:underline">
