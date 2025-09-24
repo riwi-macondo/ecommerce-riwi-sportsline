@@ -20,9 +20,8 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <Button
-      className="text-black"
       icon={isDark ? "pi pi-moon" : "pi pi-sun"}
-      severity={isDark ? "contrast" : "warning"}
+      severity={isDark ? "secondary" : "warning"}
       tooltip={isDark ? "light mode" : "dark mode"}
       text
       onClick={() => setIsDark((prev: boolean) => !prev)}

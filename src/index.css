@@ -2,6 +2,7 @@
 @import "primereact/resources/themes/lara-light-cyan/theme.css";
 @import 'primeicons/primeicons.css';
 @custom-variant dark (&:where(.dark, .dark *));
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 :root {
   --primary-color: #2563EB;   
@@ -15,4 +16,9 @@
 .dark {
   --surface-0: #111827;  /* fondo oscuro */
   --surface-900: #ffffff; /* texto claro */
+}
+
+#clave{
+  color: red;
+  background-color: red;
 }

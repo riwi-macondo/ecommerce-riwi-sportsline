@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import AppRouter from "./router/router"
+import './index.css'
 
 function App() {
   return (
