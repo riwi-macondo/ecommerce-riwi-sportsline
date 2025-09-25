@@ -69,3 +69,6 @@ El objetivo es mantener un flujo de trabajo claro, ordenado y profesional.
 ### 💡 Recordatorio
 La colaboración exitosa depende de **comunicación clara, código limpio y compromiso con la calidad**.  
 Cada contribución suma al crecimiento del proyecto 🚀.
+
+## Acceso al figma
+[Ir al figma](https://drive.google.com/drive/folders/1Ch-mlVs314o86et9Bm2M0Rnod8G0ewNK?usp=drive_link)

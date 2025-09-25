@@ -1,10 +1,7 @@
 import axios, { AxiosError, AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 
-
-
-
 const api = axios.create({
-    baseURL: '',
+    baseURL: 'http://localhost:5173/',
     timeout: 5000
 });
 
