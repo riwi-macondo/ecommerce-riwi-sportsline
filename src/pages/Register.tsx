@@ -66,12 +66,12 @@ function Register() {
     };
 
     return (
-        <div className="min-h-screen w-full bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-4 md:p-8">
+        <div className="w-full bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 p-4 md:p-8">
             <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                 {/* Left image panel (hidden on mobile) */}
-                <div className="hidden md:block relative rounded-3xl overflow-hidden shadow-xl bg-white/10">
+                <div className="h-[80vh] hidden md:block relative rounded-3xl overflow-hidden shadow-xl bg-white/10">
                     <img
-                        src="/src/assets/imgs/nike.jpg"
+                        src="/src/assets/imgs/media/nike.jpg"
                         alt="Sport is you"
                         className="h-full w-full object-cover"
                     />
@@ -81,13 +81,13 @@ function Register() {
                 </div>
 
                 {/* Right form card */}
-                <div className="relative rounded-3xl bg-white dark:bg-gray-800 shadow-gray-500/30 shadow-2xl p-6 sm:p-8 md:p-10">
+                <div className="h-screen sm:h-[80vh] relative rounded-3xl bg-white dark:bg-gray-800 shadow-gray-500/30 shadow-2xl p-4 sm:p-6 md:p-8 overflow-y-auto">
                     <div className="absolute right-4 top-4">
                         <ThemeToggle />
                     </div>
                     <form className="space-y-6 max-w-md mx-auto" onSubmit={handleSubmit}>
                         <div className="flex justify-center">
-                            <img src="/src/assets/icons/logo.png" alt="RIWI SportsLine Logo" className="h-12 w-auto" />
+                            <img src="/src/assets/icons/logo.png" alt="RIWI SportsLine Logo" className="h-20 w-auto" />
                         </div>
                         <h1 className="font-bold italic text-3xl tracking-wide">REGISTER</h1>
 
@@ -114,7 +114,7 @@ function Register() {
                                 showIcon
                                 placeholder="YYYY-MM-DD"
                             />
-                            <label htmlFor="birthday">Birthday-date</label>
+                            <label htmlFor="birthday">Birthdate</label>
                         </FloatLabel>
 
                         <FloatLabel>
@@ -169,7 +169,7 @@ function Register() {
                         <div className="pt-2">
                             <Button
                                 label="Create Account"
-                                className="w-full !rounded-md"
+                                className="w-full"
                                 severity="warning"
                                 type="submit"
                                 disabled={password !== confirmPassword || password.length === 0}
