@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+// path: src/router/router.tsx
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Register from "../pages/Register";
@@ -8,22 +9,28 @@ import Unauthorized from "../pages/Unauthorized";
 import AdminDashboard from "../pages/AdminDashboard";
 import SellerDashboard from "../pages/SellerDashboard";
 import CustomerHome from "../pages/CustomerHome";
+
 import { AuthGuard } from "./guard/AuthGuard";
 
 export default function AppRouter() {
-    return(
+    return (
         <Routes>
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/register" element={<Register/>}/>
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-            {/* Rutas protegidas */}
+            {/* Rutas protegidas por rol */}
             <Route
                 path="/admin"
-                element={<AuthGuard />}>
-                    <Route element = {<SellerDashboard />} />
-            </Route>
+                element={
+                    <AuthGuard roles={["admin"]}>
+                        <AdminDashboard />
+                    </AuthGuard>
+                }
+            />
+
             <Route
                 path="/seller"
                 element={
@@ -32,6 +39,7 @@ export default function AppRouter() {
                     </AuthGuard>
                 }
             />
+
             <Route
                 path="/customer"
                 element={
@@ -42,7 +50,7 @@ export default function AppRouter() {
             />
 
             <Route path="/unauthorized" element={<Unauthorized />} />
-            <Route path="*" element={<NotFound/>}/>
+            <Route path="*" element={<NotFound />} />
         </Routes>
-    )
+    );
 }

@@ -1,20 +1,26 @@
+// path: src/router/guard/AuthGuard.tsx
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth, Role } from "../../context/AuthContext";
 
 interface AuthGuardProps {
-  children: ReactNode;
-  roles?: string[];
+  children?: ReactNode;
+  roles?: Role[];
 }
 
+/**
+ * Guard genérico: si no está autenticado -> /login
+ * si está autenticado pero rol no permitido -> /unauthorized
+ * si todo ok -> render children
+ */
 export const AuthGuard = ({ children, roles }: AuthGuardProps) => {
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
 
-  if (!user) {
+  if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  if (roles && !roles.includes(user.role)) {
+  if (roles && (!user || !roles.includes(user.role))) {
     return <Navigate to="/unauthorized" replace />;
   }
 
