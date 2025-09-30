@@ -13,9 +13,10 @@
     "@tailwindcss/vite": "^4.1.13",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",
+    "axios": "^1.12.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.1",
+    "react-router-dom": "^7.9.2",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
