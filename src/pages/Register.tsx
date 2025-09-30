@@ -7,6 +7,9 @@ import { Dropdown } from 'primereact/dropdown';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
+import nike from '../assets/imgs/nike.jpg';
+import logo from '../assets/icons/logo.png';
+
 
 function Register() {
     const [username, setUsername] = useState<string>('');
@@ -71,7 +74,7 @@ function Register() {
                 {/* Left image panel (hidden on mobile) */}
                 <div className="h-[80vh] hidden md:block relative rounded-3xl overflow-hidden shadow-xl bg-white/10">
                     <img
-                        src="/src/assets/imgs/media/nike.jpg"
+                        src={nike}
                         alt="Sport is you"
                         className="h-full w-full object-cover"
                     />
@@ -87,7 +90,7 @@ function Register() {
                     </div>
                     <form className="space-y-6 max-w-md mx-auto" onSubmit={handleSubmit}>
                         <div className="flex justify-center">
-                            <img src="/src/assets/icons/logo.png" alt="RIWI SportsLine Logo" className="h-20 w-auto" />
+                            <img src={logo} alt="RIWI SportsLine Logo" className="h-20 w-auto" />
                         </div>
                         <h1 className="font-bold italic text-3xl tracking-wide">REGISTER</h1>
 
@@ -139,7 +142,8 @@ function Register() {
                         <FloatLabel>
                             <Password
                                 inputId="password"
-                                className="w-full p-inputtext-sm"
+                                inputClassName="!w-full !block p-inputtext-sm"
+                                className="!w-full !block p-inputtext-sm"
                                 value={password}
                                 onChange={handlePasswordChange}
                                 toggleMask
@@ -152,7 +156,8 @@ function Register() {
                         <FloatLabel>
                             <Password
                                 inputId="confirmPassword"
-                                className="w-full p-inputtext-sm"
+                                inputClassName="!w-full !block p-inputtext-sm"
+                                className="!w-full !block p-inputtext-sm"
                                 value={confirmPassword}
                                 onChange={handle_validation}
                                 toggleMask
