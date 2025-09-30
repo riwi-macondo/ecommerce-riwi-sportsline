@@ -4,7 +4,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 /**
  * Tipado para evitar errores
  */
-export type Role = "admin" | "seller" | "customer";
+export type Role = "admin" | "seller" | "customer" | "visitor";
 
 export type User = {
   role: Role;
@@ -25,7 +25,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // DEV: inicializado como admin para probar; en producción -> null
-  const [user, setUser] = useState<User | null>({ role: "admin", name: "Test" });
+  const [user, setUser] = useState<User | null>({ role: "visitor", name: "Test" });
 
   const login = (userData: User) => {
     setUser(userData);
