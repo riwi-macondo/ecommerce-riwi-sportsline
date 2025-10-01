@@ -9,7 +9,11 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+<<<<<<< HEAD
     /*"verbatimModuleSyntax": true,*/
+=======
+/*     "verbatimModuleSyntax": true, */
+>>>>>>> 6bf79948656465efaa51ca56ca919fc089f18733
     "moduleDetection": "force",
     "noEmit": true,
 
