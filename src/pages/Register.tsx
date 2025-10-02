@@ -7,7 +7,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
-import nike from '../assets/imgs/nike.jpg';
+import nike from '../../public/imgs/media/nike.jpg';
 import logo from '../assets/icons/logo.png';
 
 
